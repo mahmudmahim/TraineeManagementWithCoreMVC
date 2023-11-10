@@ -1,0 +1,21 @@
+﻿@model IEnumerable<TraineeProject.Models.Trainee>
+
+<table class="table table-bordered table-striped table-sm mt-2">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(x=>x.TraineeName)</th>
+            <th>@Html.DisplayNameFor(x=>x.TraineeEmail)</th>
+            <th>@Html.DisplayNameFor(x=>x.TraineeContact)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.TraineeName</td>
+                <td>@item.TraineeEmail</td>
+                <td>@item.TraineeContact</td>
+            </tr>
+        }
+    </tbody>
+</table>

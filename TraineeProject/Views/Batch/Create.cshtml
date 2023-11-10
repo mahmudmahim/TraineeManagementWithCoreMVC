@@ -1,0 +1,33 @@
+﻿@model TraineeProject.Models.Batch
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="row">
+    <div class="card col-6 offset-3 mt-2 mb-2">
+        <h2 class="card-header display-4 text-center bg-success-subtle mt-2">Add New Batch</h2>
+    </div>
+    <hr />
+    <div class="col-md-4">
+        <form asp-action="Create" asp-controller="Batch">
+            <div class="row mt-2">
+                <label asp-for="BatchCode" class="col-form-label col-2 fw-bold fs-5"></label>
+                <div class="col-8">
+                    <input asp-for="BatchCode" class="form-control" />
+                </div>
+                <div class="col-2">
+                    <span asp-validation-for="BatchCode" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary btn-lg mt-2" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-outline-warning btn-sm mt-2"><i class="fa fa-arrow-circle-left"></i>Back To List</a>
+</div>
+

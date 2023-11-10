@@ -1,0 +1,68 @@
+﻿@model TraineeProject.Models.Trainee
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="row">
+    <div class="col">
+        <div class="card col-6 offset-3 mt-2">
+            <h2 class="card-header display-4 text-center bg-success-subtle mt-2">Add New Trainee</h2>
+        </div>
+        <form asp-action="Create" asp-controller="Trainees">
+            <div class="row mb-2 mt-4">
+                <label asp-for="TraineeName" class="col-form-label col-2 fw-bold fs-5"></label>
+                <div class="col-6">
+                    <input type="text" asp-for="TraineeName" class="form-control form-control-sm" />
+                </div>
+                <div class="col-4">
+                    <span asp-validation-for="TraineeName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-2 mt-2">
+                <label asp-for="TraineeEmail" class="col-form-label col-2 fw-bold fs-5"></label>
+                <div class="col-6">
+                    <input type="text" asp-for="TraineeEmail" class="form-control form-control-sm" />
+                </div>
+                <div class="col-4">
+                    <span asp-validation-for="TraineeEmail" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-2 mt-2">
+                <label asp-for="TraineeContact" class="col-form-label col-2 fw-bold fs-5"></label>
+                <div class="col-6">
+                    <input type="text" asp-for="TraineeContact" class="form-control form-control-sm" />
+                </div>
+                <div class="col-4">
+                    <span asp-validation-for="TraineeContact" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-2 mt-2">
+                <label asp-for="BatchId" class="col-form-label col-2 fw-bold fs-5"></label>
+                <div class="col-6">
+                    <select class="form-select form-select-sm" asp-for="BatchId" asp-items="@(new SelectList(ViewBag.batches,"BatchId","BatchCode"))">
+                        <option value="" selected>----Select----</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <span asp-validation-for="BatchId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-2 mt-2">
+
+                <div class="col-10 offset-2">
+                    <input type="submit" value="Save" class="btn btn-primary mt-2" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-outline-warning"><i class="fa fa-arrow-circle-left"></i>Back To List</a>
+</div>
+

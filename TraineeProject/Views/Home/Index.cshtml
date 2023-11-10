@@ -1,0 +1,35 @@
+﻿@model TraineeProject.Models.ViewModel.BatchViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col">
+        <div>
+            <form asp-action="Index" asp-controller="Home">
+                <div class="row mt-2">
+                    <label class="col-form-label col-2"><b>Batch:</b></label>
+                    <div class="col-8">
+                        <select class="form-select" asp-for="SelectBatch" asp-items="@(new SelectList(Model.Batches,"BatchId","BatchCode"))">
+                            <option value="0" selected>
+                                -----Select----
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Show</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@if(Model.Trainees != null)
+{
+    <div class="row">
+        <div class="col">
+            @await Html.PartialAsync("_trainees",Model.Trainees)
+        </div>
+    </div>
+}
